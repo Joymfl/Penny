@@ -1,6 +1,7 @@
 enum ThreadState {
 	Running = 1,
 	Sleeping = 2,
+	Blocked = 3
 }
 interface TaskFrame {
 	id: number;

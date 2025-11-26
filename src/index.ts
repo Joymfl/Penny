@@ -17,6 +17,7 @@ taskScheduler.newTask(2, 4);
 taskScheduler.newTask(2, 3);
 
 
+// testing dynamic function loading
 const functionTable = new Vtable();
 functionTable.pushMethod((input1: number, input2: number) => {console.log("New vtable method",input1 + input2)});
 console.log(JSON.stringify(functionTable));
