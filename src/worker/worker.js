@@ -3,7 +3,7 @@
 // type VTable<T extends Record<number, Fn>> = T;
 
 
-const VTable = {
+let VTable = {
     1: (a,b) => a +b,
     2: (n) => n * n
 };

@@ -1,9 +1,26 @@
-export interface VirtualThread {
+enum ThreadState {
+	Running = 1,
+	Sleeping = 2,
+}
+interface TaskFrame {
 	id: number;
+	continuationMarker?: number;
+	state: ThreadState;
+}
+
+export interface VirtualThread {
+	frame: TaskFrame;
 	worker: Worker;
 }
 
 export function createThread(id: any): VirtualThread {
 	const worker = new Worker(new URL('../worker/worker.js', import.meta.url), {type: "module"});
-	return {id, worker};
+	return {
+		frame: {
+			id,
+			continuationMarker: undefined,
+			state: ThreadState.Sleeping
+		},
+		worker
+	};
 }
