@@ -22,5 +22,25 @@ or if I use a vtable sort of construct, to have a map of which method needs to b
 - The message passing model of worker thread might be a performance bottleneck. Confirm this.
 
 Current Iteration:
-- Have a static function table for workers to select tasks and execute
+- Have a static function table for workers to select tasks and execute. This is not ideal, as I want the scheduler to be able to accept tasks at runtime -> convert to tiny pieces and execute.
+would be really cool, if there's a way I can think of to make it execute like a CPU and do out of order executions, while respecting data boundaries. Todo: read up on this topic a bit more
 
+`Current VTable shape
+ const VTable= {
+id (1): (a,b) => a + b,
+id (2): (n) => n*n
+}`
+
+
+
+Notes to self:
+- Read the Go scheduler architecture
+- Read tokio and rayon internals
+
+
+Notes about V1:
+- Built an interface around the thread called Virtual threads, need to test out if I can actually swap out the internal thread in a clean way
+- Need to use typescript to harden the api to call methods from Scheduler
+- The scheduler basically just has a static array of a list of threads, kind of like a thread pool. This was done to avoid the overhead of creating a new one a task came in.The next step would be to autoamtically assign tasks to a free thread, maybe I should hold the state of a thread somewhere? maybe split between IDLE/Running/Ready state machine, to help my scheduler choose
+- Current flow |Initializing scheduler creates either user input or queries number of hardware threads -> add a task to scheduler -> scheduler executes |
+- Biggest issue right now, is that, literally only 4 tasks can be assigned to the scheduler. This isn't great haha, but the actual scheduler engineering starts now!
