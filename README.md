@@ -2,7 +2,7 @@
 
 The goal is to explore whether a runtime can support:
 
-virtualized threads
+virtualized threads (for future host environment agnostic threading)
 
 dynamic function dispatch
 
