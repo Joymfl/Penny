@@ -66,6 +66,8 @@ This should in general improve startup time and would technically enable dynamic
 #### Long-term solution: WASM stack switching → real fibers → real stack suspension. For V1 I’ll simulate this behavior as best as the environment allows.
 
 
+### Thread State current thoughts
+For now, I have added thread states, managed by the scheduler with 3 states: SLEEPING | RUNNING | BLOCKED. The sleeping and running ones, are just supposed to show whether the thread is busy, so that the scheduler can pick one that is idle instead of overloading a working thread. The blocked one is interesting, though. My current issue with this design is, what if one of the thread has to perform I/O ? Running isn't quite accurate, since the thread would technically be idle while waiting for the I/O to complete. So, it needs to be in a different state, to signal to the scheduler that it can still accept jobs, but there might be a task ongoing that might need it's attention again. And it's upto the scheduler on how to handle that. 
 
 Notes to self:
 - Read the Go scheduler architecture
