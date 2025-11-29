@@ -1,48 +1,122 @@
-﻿## Penny is an experiment in building a Cilk-style work-stealing scheduler for the browser using Web Workers, dynamic vtables, and user-level task scheduling.
+﻿# Penny
 
-The goal is to explore whether a runtime can support:
+OUTDATED. TODO: Update to latest 
 
-virtualized threads (for future host environment agnostic threading)
+Penny is an experiment in building a Cilk-style work-stealing scheduler for the browser using Web Workers, dynamic vtables, and user-level task scheduling.
 
-dynamic function dispatch
+Modern browsers expose concurrency primitives (Workers, SharedArrayBuffers, Atomics) but lack traditional OS-level features like stacks, preemption, and direct yield control. Penny asks:
 
-dependency-driven execution
+**What would a proper parallel runtime for the browser look like if we tried to build it anyway?**
 
-future WASM stack switching
+This repository explores the constraints and possibilities of:
 
-hybrid browser-native + WASM scheduling
+- virtualized threads (host-agnostic thread abstraction)
+- dynamic function dispatch
+- dependency-driven execution
+- future WASM stack switching
+- hybrid browser-native + WASM scheduling
 
-## This repository contains v1 of the scheduler:
+---
 
-a static/dynamic vtable
+##  Why Penny Exists
 
-virtual thread abstraction
+Today, browser compute is single-thread–biased, message-passing–only, and lacks the foundations needed for real parallel runtimes. However:
 
-random scheduling (first slice)
+- client-side ML workloads are increasing
+- games & simulations are moving into WASM
+- heavy UI apps want parallel pipelines
+- multi-tab or multi-client distributed compute is possible
 
-callback-based task completions
+**Penny is a research experiment to answer a simple question:**  
+*Can a browser runtime behave more like an OS scheduler?*  
+If so, what abstractions are required, and how far can we push Web Workers under these constraints?
 
-Architecture notes and design decisions are documented in /docs/architecture.md and /docs/dev_thoughts.md
+The goal is not to fully reproduce Cilk or Go, but to understand the engineering surface:  
+shared memory, work-stealing, fibers, fake stacks, async yielding, dependency graphs — and how they behave in a sandboxed world.
 
-## Current data flow
-v1.
+---
+
+##  Current State — v1
+
+This repository currently contains the first slice of the scheduler:
+
+- a static/dynamic vtable
+- virtual thread abstraction
+- random scheduling (initial prototype)
+- thread state transitions (Sleeping → Running)
+- callback-based task completion
+
+Architecture notes and design decisions live in:
+
+- `/docs/architecture.md`
+- `/docs/dev_thoughts.md`
+- `/docs/experimental/` (design sketches, thought experiments, alternative models)
+
+---
+
+##  Current Data Flow (v1)
+
 ![Scheduler Flow](./diagrams/penny-v1.png)
 
-## Roadmap
-🚧 v2 Goals
+---
+
+##  Use Cases (Future-facing)
+
+Penny is research-oriented, but the end-state runtime could support:
+
+### **Parallel client-side compute**
+- ML inference inside a webpage
+- large dataset transforms
+- video processing / compression
+- physics simulations
+- pathfinding or game logic in workers
+
+### **Hybrid WASM + JS runtimes**
+- a WASM core with vtable dispatch into JS
+- JS tasks calling into WASM fibers
+- scheduling workloads across both boundaries
+
+### **Structured parallelism inside apps**
+- “spawn / sync” style APIs for UI workloads
+- async graphs that respect data dependencies
+- mini-DAG executors for pipeline tasks
+
+### **Distributed workloads**
+(ambitious, long-term idea)
+
+Imagine a tab → tab → device → device virtual thread pool:
+
+- serialize tasks
+- send them to other clients
+- run atomic microtasks
+- aggregate results
+- behave like a global cooperative cluster
+
+---
+
+##  Roadmap
+
+###  v2 Goals
 - Thread state machine: Idle | Running | Blocked
 - Deterministic scheduling (round-robin)
 - Per-thread task deques
 - Work-stealing prototype (Cilk-style)
 - Basic dependency graph support (mini-DAG executor)
-- Name-mangled function registry (or at least hashing and mapping function names to avoid collision)
+- Name-mangled function registry (hash → function mapping)
 
-🚧 v3 Goals
+###  v3 Goals
 - WASM core scheduler
 - WASM stack switching → shallow fibers
-- pluggable thread abstraction (browser / node / wasm) (Have started abstracting early, but need to see if it holds)
+- Pluggable thread backend: Browser / Node / WASM host
 
-🚧 v4 (vision)
+###  v4 Vision
 - Multi-node distributed scheduling
 - Serialized microtasks + atomic execution units
 - Virtual global thread pool across clients
+
+---
+
+## Experimental Designs
+
+All alternative designs (e.g., MGR — Merry Go Round Scheduler, userland fake stacks, multi-queue experiments) live in: /docs/experimental
+

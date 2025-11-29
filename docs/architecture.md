@@ -73,7 +73,39 @@ Notes to self:
 - Read the Go scheduler architecture
 - Read tokio and rayon internals
 
+### How to get task status & cilk like work stealing?
+Issues with the current approach:
+1. Worker threads, can't see each other's memory
+2. Message passing is expensive
+3. No easy way to syncrhonize threads, or let them know when a task has been stolen
+4. No global thread tracking
 
+I tried a couple of approaches here:
+1. Trying to store function table into a SAB. No go, can't get it to serialize properly
+2. Giving each thread an individual deque, like what's in the CILK paper. Didn't work, I realized that threads can't look into each other's memory. 
+3. Trying to give each worker thread a copy of the function table. I would've prefered a global function table that every thread could hold a pointer to, but no go due to point 1. Might be some work around I need to explore.
+
+So, what can I do about this? I'm thinking of treating a SAB as a simple memory block, that I can make the threads hold pointers to. The SAB will be controlled by the scheduler, and create memory blocks which would account as thread deque. I could treat the Array views as my value containers, to control the layout.I will need to account for synchronization, but this is the most promising direction I've had all day
+Something along the lines of:
+
+This is the memory model I landed on:
+We treat the SAB as normal memory, and we create views into it, based on precomputed layout (seen in src/scheduler/mem-model.ts).
+Essentially, The SAB will be a list of DEQUE objects, represented by the following.
+thread_state: 1 byte (u8)
+number_active_tasks: 4 bytes (int32)
+thread_id: 1 byte (u8)
+top_ptr: 32 byte (int32)
+bottom_ptr: 32 byte (int32)
+taskList: 4 byte array (mapping functions to int32)
+
+in that order. Now, the cool thing is, since the metadata (first 3 fields) are only relevant to the thread, it's completely lock free (unless I want to do some visuals, then I'll need to synchronize properly). The bottom_ptr is completely lock free, while the top pointer will be controlled via atomic operations.
+This would mean Chase-Lev deque style implementation, and work stealing would theoretically be possible.
+
+Limitations:
+- Fixed Deque size. I will not be re-allocating the array for more tasks, since I'm dealing with SABs, instead I'll make a global queue living on the heap as a backbuffer to feed tasks to threads. Thread selection algorithm is still undecided as of 29/11/2025
+- Only the bottom of the deque is lock free. The top is reserved for thieving tasks to steal
+- Addressing the "one element left in the deque" issue, which basically is that if the owner thread is trying to access the last element, while another thread is trying to steal, that becomes a race condition. So, I'll need to atomically lock top every time I pop a task off the list. Important to maintain CAS here.
+    
 Notes about V1:
 - Built an interface around the thread called Virtual threads, need to test out if I can actually swap out the internal thread in a clean way
 - Need to use typescript to harden the api to call methods from Scheduler

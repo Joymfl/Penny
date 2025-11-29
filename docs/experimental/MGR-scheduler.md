@@ -96,3 +96,4 @@ One idea:
 I’m not sure yet if this can be made lock-free or if the complexity is even worth it. TODO: think more about whether there’s a hybrid MGR + deque model that isn’t obviously worse than standard work-stealing.
 
 ---
+![MGR Idea](./diagrams/MGR-Scheduler.png)
