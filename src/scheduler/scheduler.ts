@@ -1,51 +1,58 @@
 ﻿import {createThread, ThreadState, VirtualThread} from "../threads/thread";
 import {Vtable} from "../FunctionTable/vtable";
 import {MemoryModel} from "./mem-model";
+import {Thread} from "../deque/deque";
 
 
 export class Scheduler {
-    threadPool: VirtualThread[] = [];
+    threadPool:  Thread[] = [];
     vTable: Vtable | undefined = undefined;
     // This is the only way I can think of to provide a mechanism, to allow threads to steal from each other
     // The issue is, that in the browser, worker threads, can't look into other thread's memories (afaik), but doing it in a shared buffer, with careful atomics could be a promising workaround
     GlobalTaskDequeList: MemoryModel;
+    resultCallback: (ev: MessageEvent<any>) =>void = (ev: MessageEvent<any>) => {console.log(ev.data)};
 
     // Use the id, to identify the indice of the thread is being used
-    constructor(threadCount = navigator.hardwareConcurrency || 4, cb: (ev: MessageEvent<any>) => void, globalFunctionTable: Vtable) {
+    constructor(threadCount = navigator.hardwareConcurrency || 4 ) {
         this.GlobalTaskDequeList = new MemoryModel();
 
         // not providing override of scheduler vTable for now.
-        if (!this.vTable){
-            this.vTable = globalFunctionTable;
-        }
         for (let i = 0; i < threadCount; i ++){
-            const vt = createThread(i, globalFunctionTable);
-            vt.frame.state = ThreadState.Sleeping;
-            // This way of handling callbacks, assumes that methods only expect messages once the thread has computed the results. This is honestly very rigid, and I'm not a big fan of removing flexibility for the user. TODO: Rethink this approach, maybe if I implement the fake thread stack, I can use that to update the caller about the status?
-            vt.worker.onmessage = (ev) => {
-                vt.frame.state = ThreadState.Sleeping;
-                cb(ev);
+            const thread = new Thread(  i, this.GlobalTaskDequeList.sab);
+            // const thread = createThread(i, this.vTable);
+            thread.worker.onmessage = (ev: any) => {
+                this.resultCallback(ev);
             }
-           this.threadPool.push(vt);
+
+            thread.worker.onerror = (e) => {
+                console.error("WORKER ERROR:", e);
+            };
+
+            thread.worker.onmessageerror = (e) => {
+                console.error("WORKER MESSAGE ERROR:", e);
+            };
+            thread.top[0] = 0;
+            thread.bottom[0] = 0;
+            thread.worker.postMessage({sab: this.GlobalTaskDequeList.sab, threadId: i});
+           this.threadPool.push(thread);
         }
     }
 
-    newTask(taskName: string, ...args: any[]){
+    onResult(cb: (ev: MessageEvent<any>)=>void) {
+        this.resultCallback = cb;
+    }
+
+    newTask(taskId: number, ...args: any[]){
         // Randomly find a thread to assign task to, but it would be better if we had thread states to always assign to idle or low prio threads
-        let threadIndexToRun: number | undefined = undefined; // should also be undefined
-        let attemptCtr = 0; // So that the scheduler doesn't keep infinitely trying to find an idle thread, in case every thread is busy. Ideally I would use a pending queue for tasks, to be moved into, but this is an initial test
-        for (attemptCtr = 0; attemptCtr < 5 ; attemptCtr ++) { // 5 is static for now, this should be dynamic based on user workload, I think
-            const randThreadIndex = Math.floor(Math.random() * this.threadPool.length);
-            if (this.threadPool[randThreadIndex].frame.state !== ThreadState.Running){
-                threadIndexToRun  = randThreadIndex;
-                break;
-            }
-        }
-        if (threadIndexToRun != undefined) {
-            console.log("Found thread! adding task to thread queue.....")
-            const worker = this.threadPool[threadIndexToRun].worker;
-            this.threadPool[threadIndexToRun].frame.state = ThreadState.Running;
-            // worker.postMessage({id: 2, fn_id: taskId, args});
-        }
+        const randThreadIndex = Math.floor(Math.random() * this.threadPool.length);
+
+        const worker = this.threadPool[randThreadIndex].worker;
+        this.threadPool[randThreadIndex].state[0]= 1;
+        this.threadPool[randThreadIndex].tasklist[this.threadPool[randThreadIndex].bottom[0]] = taskId;
+        let b = Atomics.load(this.threadPool[randThreadIndex].bottom, 0);
+        Atomics.compareExchange(this.threadPool[randThreadIndex].bottom, 0, b, b+1);
+        worker.postMessage({args});
+        Atomics.store(this.threadPool[randThreadIndex].state, 0, 1);
+        Atomics.notify(this.threadPool[randThreadIndex].state, 0, 1);
     }
 }

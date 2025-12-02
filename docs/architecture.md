@@ -1,115 +1,198 @@
 ## Architecture notes 
 ### Topic: Exploration into a cross platform runtime layer for parallel execution of tasks
 
-Initial thoughts:
- The idea presented itself to me while looking at UE5's taskgraph, and noticing my colleagues difficulty with web workers. Reading more about the topic has revealed the concept of work stealing scheduler based on cilk, and the interesting challenges involved in it.
-I think it'll be an interesting exploration on seeing how far this can be pushed on browser environments, given their sandbox nature.
 
-Basic intuition:
-- Treat threads like OS processes. Give them a small slice of memory, so that they can remember where they are and where to continue execution. Also, give them a deque to represent the backlog of tasks (similar to an engineer lol), this comes in handy when trying to steal, or being stolen from. 
-In my head it looks like this  | Owning thread pulls from here <- [task1] [task2] [task3] [task4] -> Stealing thread pulls from here | this is cool because, it can be completely lock free, since the two interacting threads don't need to know about each other.
-My main concern is, what happens if there's only 1 task left in the queue? and if the owning thread is just finished the second last task, while at the same time, the stealing thread is there to capture the last item? Will have to reason about this
-- Let's not get stuck up on worker threads being the only abstraction. If we virtualize the concept of a "thread", then this scheduler logic can live inside any JS compatible environment, and we can plug in the thread that's being used - whether they be worker threads / native OS threads etc.
-- I'm still not clear as of right now, how I want threads to execute the methods, that the user will add to the dependency graph. Worker threads, expect a script file to be defined while being constructed. But, I wonder if I can create an object that contains the method to be executed. Something like:
- struct WorkToBeDone{
-fn1: (arg1, arg2) -> {// logic}
-fn2: (arg1) -> {// logic}
-}
-or if I use a vtable sort of construct, to have a map of which method needs to be executed. Which would make the most sense? Need to explore possibilities here.
-- Since asking for memory every time would be a pain, we could use a linear chunk of memory , and then use a bump allocater to assign memory for each thread. Sort of like a stack for each thread, virtualized from a linear byte array. This seems conceptually similar to how I think process addresses in an OS works, but not sure. Should confirm this. I have a gut feeling Shared Array buffers might be useful here.
-- I need some sort of a dependency graph, so that I make sure that I don't execute tasks, that depend on the result of another task in parallel. DAGs look promising for this 
+## Objective
 
-- The message passing model of worker thread might be a performance bottleneck. Confirm this.
+Design a Cilk-like work-stealing scheduler that runs natively in the browser using Web Workers and SharedArrayBuffers. The goals:
 
-Current Iteration:
-- Have a static function table for workers to select tasks and execute. This is not ideal, as I want the scheduler to be able to accept tasks at runtime -> convert to tiny pieces and execute.
-would be really cool, if there's a way I can think of to make it execute like a CPU and do out of order executions, while respecting data boundaries. Todo: read up on this topic a bit more
+Achieve high-performance parallelism in JS
 
-`Current VTable shape
- const VTable= {
-id (1): (a,b) => a + b,
-id (2): (n) => n*n
-}`
+Provide local worker deques for cache-efficient task ownership
 
+Support stealing to balance work across threads
 
-- I wanted an object shape that I could add methods to during runtime, for the threads to be able to read. It currently looks like this: 
-  ```
-      export class Vtable {
-      vTable: any = [];
+Minimize message passing costs
 
-      constructor() {
-      }
+Marshal arguments using a global SAB heap
 
-      pushMethod(fn: any) {
-      this.vTable.push(fn);
-      }
-      }
-  ```
-  A few issues with this. Not strongly typed, so anyone can push whatever they want, giving no runtime guarantee. How I miss C right now. But, this can be solved with a generic template for the interface and careful management of what I want to expose. for starters, letting the function table being public is not great.
-  This is just an JS object, copying the method signature. A true vtable would have function pointer, which would be easier to manipulate and be faster in runtime, I should look into if there's a better way to do this? Again, wrapping the scheduler in wasm comes to mind, but I wonder if I can control the lifetime of the object on both sides of the boundary.
-  Also, these methods need identifiers to enable reuse and general dx. For example, let's say I define a method that is to be added to this list, and later I want to add another method that depends on the first one. Currently I'll have to define all the methods again and again, that's not ideal. Better yet, I can do something close to what name mangling is: take in a user defined function "name", and then map it to a generated name. We could use data structures like hashmap to enable O(1) lookup of names, when it needs to be referenced again.
-  Same applies for threads, but since it'll be internal to the scheduler, I feel like uuids or something that don't collide, would be a better option. Name of the game? avoid name/id collisions. But, I wonder how much of a difference in compute time this would have to a pointer based implementation of vtable? Not that much for small projects I'm sure, but as the number of methods explode, this table would be at risk of consuming a lot of memory, which the browser isn't very friendly about sharing
-  ### Why do I want runtime based function table as opposed to compile time? 
-- My initial intuition is memory is a bit more important to let other tasks breathe that run on the main thread
-- The "tasks" and scheduler will start of with a smaller mem footprint, and then lazily grows, as tasks are assigned to it based on runtime
+Eventually support continuations, yielding, and dynamic IR-level splitting
 
-This should in general improve startup time and would technically enable dynamic workloads, but the pain and carefulness of using this would be offloaded to the caller
+Penny aims to become a true micro-runtime, not just a worker pool.
 
- ### What to do about the lack of stacks in JS environment?
-    This is a hard one, on one hand for proper fibers, and cooperative yielding, I would love to have stacks for my threads, as that will let me store the execution state (similar to how OSes do it), but the sandbox nature of browsers won't let me do it. How would I resolve this?
-    My naive intuition is telling me to fake the thread stack, and autogenerate await() points in the user's method. Something like | User function -> Convert to string -> randomly split function with yield() methods -> register on vTable| This way, when a thread picks up the task, it'll naturally yield, essentially giving me the microjobs I want. But copying this stack around, and maintaining multiple copies of it per thread, for each task it runs, doesn't seem right: it'll bog down performance. This obviously doesn't give me true fibers, only artificial suspension points. Hacky, not a real stack capture and might be a pain = I'll need to be careful about semantics used
-    Could I use a code generator for creating these yield points? I should explore how I would transform user code into a generator state machine
+## Environment Limitations
 
-    I found that the WASM stack switching proposal, would be a good resolution here, and gets in line with my intention of having my scheduler core in wasm, but that would be a future improvement. For now, let's see how far we can push it for the current browser environment, and if it's any improvement
-    When I say ‘fake stack’, I’m not referring to capturing the real JS call stack. I mean a userland data structure where I store program counters, variables, or generator state to simulate suspension points.
+Penny is designed entirely within the constraints of browser execution:
 
-#### Long-term solution: WASM stack switching → real fibers → real stack suspension. For V1 I’ll simulate this behavior as best as the environment allows.
+1. Message Passing is Expensive
 
+postMessage copies non-SAB payloads.
+SAB + typed views must be used whenever possible.
 
-### Thread State current thoughts
-For now, I have added thread states, managed by the scheduler with 3 states: SLEEPING | RUNNING | BLOCKED. The sleeping and running ones, are just supposed to show whether the thread is busy, so that the scheduler can pick one that is idle instead of overloading a working thread. The blocked one is interesting, though. My current issue with this design is, what if one of the thread has to perform I/O ? Running isn't quite accurate, since the thread would technically be idle while waiting for the I/O to complete. So, it needs to be in a different state, to signal to the scheduler that it can still accept jobs, but there might be a task ongoing that might need it's attention again. And it's upto the scheduler on how to handle that. 
+2. Strict Memory Alignment Rules
 
-Notes to self:
-- Read the Go scheduler architecture
-- Read tokio and rayon internals
+JS requires typed arrays to begin on specific byte boundaries.
+This constraint actually helps sab → L1/L2 cache locality.
 
-### How to get task status & cilk like work stealing?
-Issues with the current approach:
-1. Worker threads, can't see each other's memory
-2. Message passing is expensive
-3. No easy way to syncrhonize threads, or let them know when a task has been stolen
-4. No global thread tracking
+3. No Portable Thread Stacks
 
-I tried a couple of approaches here:
-1. Trying to store function table into a SAB. No go, can't get it to serialize properly
-2. Giving each thread an individual deque, like what's in the CILK paper. Didn't work, I realized that threads can't look into each other's memory. 
-3. Trying to give each worker thread a copy of the function table. I would've prefered a global function table that every thread could hold a pointer to, but no go due to point 1. Might be some work around I need to explore.
+Workers have no accessible stack.
+No stack switching, no green threads.
 
-So, what can I do about this? I'm thinking of treating a SAB as a simple memory block, that I can make the threads hold pointers to. The SAB will be controlled by the scheduler, and create memory blocks which would account as thread deque. I could treat the Array views as my value containers, to control the layout.I will need to account for synchronization, but this is the most promising direction I've had all day
-Something along the lines of:
+4. Functions Cannot Be Sent to Workers
 
-This is the memory model I landed on:
-We treat the SAB as normal memory, and we create views into it, based on precomputed layout (seen in src/scheduler/mem-model.ts).
-Essentially, The SAB will be a list of DEQUE objects, represented by the following.
-thread_state: 1 byte (u8)
-number_active_tasks: 4 bytes (int32)
-thread_id: 1 byte (u8)
-top_ptr: 32 byte (int32)
-bottom_ptr: 32 byte (int32)
-taskList: 4 byte array (mapping functions to int32)
+Closures cannot cross thread boundaries.
+Workers must use a static function table.
 
-in that order. Now, the cool thing is, since the metadata (first 3 fields) are only relevant to the thread, it's completely lock free (unless I want to do some visuals, then I'll need to synchronize properly). The bottom_ptr is completely lock free, while the top pointer will be controlled via atomic operations.
-This would mean Chase-Lev deque style implementation, and work stealing would theoretically be possible.
+These constraints deeply influence the design of Penny’s scheduler and memory layout.
 
-Limitations:
-- Fixed Deque size. I will not be re-allocating the array for more tasks, since I'm dealing with SABs, instead I'll make a global queue living on the heap as a backbuffer to feed tasks to threads. Thread selection algorithm is still undecided as of 29/11/2025
-- Only the bottom of the deque is lock free. The top is reserved for thieving tasks to steal
-- Addressing the "one element left in the deque" issue, which basically is that if the owner thread is trying to access the last element, while another thread is trying to steal, that becomes a race condition. So, I'll need to atomically lock top every time I pop a task off the list. Important to maintain CAS here.
-    
-Notes about V1:
-- Built an interface around the thread called Virtual threads, need to test out if I can actually swap out the internal thread in a clean way
-- Need to use typescript to harden the api to call methods from Scheduler
-- The scheduler basically just has a static array of a list of threads, kind of like a thread pool. This was done to avoid the overhead of creating a new one a task came in.The next step would be to autoamtically assign tasks to a free thread, maybe I should hold the state of a thread somewhere? maybe split between IDLE/Running/Ready state machine, to help my scheduler choose
-- Current flow |Initializing scheduler creates either user input or queries number of hardware threads -> add a task to scheduler -> scheduler executes |
-- Biggest issue right now, is that, literally only 4 tasks can be assigned to the scheduler, and it's chosen at random which thread to run the task on. This isn't great haha, but the actual scheduler engineering starts now!
-- Should find a way to track which thread is doing what job at a given point. Would be really helpful for actual benchmarking or debugging
+## Memory Model
+
+Each worker is assigned a deterministic slice of a SharedArrayBuffer:
+
+[ Worker Metadata |
+Int32 STATE |
+Uint32 THREAD_ID |
+Uint32 ACTIVE_TASKS (unused) |
+--- padding ---
+Deque Region:
+Uint32 TOP |
+60 bytes padding  <- avoid false sharing
+Uint32 BOTTOM |
+60 bytes padding
+Uint32 TASK_ID * THREAD_TASK_CAPACITY
+]
+
+## Design Issues & Improvements
+1. Repeated Metadata Per Worker
+
+Better approach:
+
+[ Global Thread Metadata |
+Worker 1 Deque |
+Worker 2 Deque |
+...
+Global Arg Heap |
+Global MPMC Queue (fallback)
+]
+
+2. False Sharing Concerns
+
+TOP and BOTTOM must be padded to at least 64 bytes.
+This matches Go, Java, JVM, Rust, Cilk schedulers.
+
+## Stack & Continuation Plans
+
+Modern runtimes use stack switching and continuations. The main concern here, is a single heavy task monopolizing a thread. A fairness queue (not decided yet) and continuations would help avoid that. 
+Java Loom, Go, Erlang, and Rust async all rely on them.
+
+Penny v2+ Goal:
+
+Integrate WebAssembly Stack Switching Proposal:
+
+Green threads
+
+Stackful fibers
+
+True yield/resume support
+
+Continuation passing
+
+Cross-thread migration at yield points
+
+IR-level yield injection
+
+WASM modules for extensible vTables
+
+This transforms Penny from a simple worker scheduler into a general-purpose concurrent runtime.
+
+## Scheduler Architecture
+Current Issues (v0 → v0.1)
+
+### The initial approach:
+
+Main thread distributes tasks
+
+Tracks per-thread capacity
+
+Uses fallback queues
+
+Requires polling or timeouts
+
+### This leads to:
+
+UI thread stalls
+
+Non-deterministic scheduling
+
+Poor scaling
+
+Main-thread bottleneck
+
+## Proposed Architecture (v1)
+
+There are two correct models for a real work-stealing runtime.
+
+### Architecture A — Fully Decentralized (Recommended)
+
+Matches Cilk, Rayon, Go, Tokio, and Kotlin coroutines.
+
+Worker Algorithm
+
+Try popping from bottom (fast, no atomics)
+
+If empty → steal from another worker’s top (CAS)
+
+If all empty → pull from global MPMC queue
+
+If still empty → sleep using Atomics.wait
+
+Task Injection
+
+Main thread simply pushes tasks into the global queue.
+Workers handle scheduling entirely by themselves.
+
+Overflow Handling
+
+If a worker’s deque is near full → spill to another worker.
+
+### Architecture B — Dedicated Scheduler Worker
+
+The main thread offloads scheduling to a scheduler worker that:
+
+Distributes tasks to worker deques
+
+Maintains optional priority queues
+
+Performs global load balancing
+
+Better for complex scheduling policies, but more moving parts.
+
+## Tradeoffs
+### Static Function Table
+
+Pros
+
+Zero-cost dispatch
+
+Allows IR-level yield injection
+
+Predictable symbol resolution
+
+Easy to JIT/AOT optimize
+
+Cons
+
+Tasks must be defined ahead of time
+
+No dynamic closures
+
+Harder to load user-defined functions
+
+Browser SAB Limitations
+
+Requires COOP+COEP headers
+
+Requires alignment padding
+
+No atomic operations on 8-bit arrays except waits

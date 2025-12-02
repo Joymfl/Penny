@@ -1,4 +1,3 @@
-import {Deque} from "../deque/deque";
 import {Vtable} from "../FunctionTable/vtable";
 
 export enum ThreadState {
@@ -18,13 +17,13 @@ export interface VirtualThread {
 	worker: Worker;
 }
 
-export function createThread(id: any, globalFunctionTable: Vtable): VirtualThread {
+export function createThread(id: number): VirtualThread {
 	const worker = new Worker(new URL('../worker/worker.js', import.meta.url), {type: "module"});
 	return {
 		frame: {
 			id,
-			continuationMarker: undefined,
-			state: ThreadState.Sleeping,
+			continuationMarker: undefined, // unused
+			state: ThreadState.Sleeping, // unused
 		},
 		worker
 	};

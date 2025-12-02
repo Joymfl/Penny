@@ -1,122 +1,107 @@
-﻿# Penny
+﻿# Penny Runtime
+### A browser-native, Cilk-inspired work-stealing runtime for parallel execution
 
-OUTDATED. TODO: Update to latest 
+Penny is an experimental **parallel runtime** designed to bring **Cilk-style work-stealing**, **zero-copy shared memory**, and **future fiber support** to the browser and other JavaScript environments.
 
-Penny is an experiment in building a Cilk-style work-stealing scheduler for the browser using Web Workers, dynamic vtables, and user-level task scheduling.
+It explores what a true **low-level scheduler** could look like in a world constrained by:
 
-Modern browsers expose concurrency primitives (Workers, SharedArrayBuffers, Atomics) but lack traditional OS-level features like stacks, preemption, and direct yield control. Penny asks:
+- Web Workers
+- SharedArrayBuffers
+- TypedArray alignment
+- Atomics
+- No thread stacks or closures across workers
 
-**What would a proper parallel runtime for the browser look like if we tried to build it anyway?**
-
-This repository explores the constraints and possibilities of:
-
-- virtualized threads (host-agnostic thread abstraction)
-- dynamic function dispatch
-- dependency-driven execution
-- future WASM stack switching
-- hybrid browser-native + WASM scheduling
+Penny is not a worker pool — it is a **research runtime** that pushes the boundaries of what JavaScript can do on multicore hardware.
 
 ---
 
-##  Why Penny Exists
+## 🚀 Features (Current + In Progress)
 
-Today, browser compute is single-thread–biased, message-passing–only, and lacks the foundations needed for real parallel runtimes. However:
-
-- client-side ML workloads are increasing
-- games & simulations are moving into WASM
-- heavy UI apps want parallel pipelines
-- multi-tab or multi-client distributed compute is possible
-
-**Penny is a research experiment to answer a simple question:**  
-*Can a browser runtime behave more like an OS scheduler?*  
-If so, what abstractions are required, and how far can we push Web Workers under these constraints?
-
-The goal is not to fully reproduce Cilk or Go, but to understand the engineering surface:  
-shared memory, work-stealing, fibers, fake stacks, async yielding, dependency graphs — and how they behave in a sandboxed world.
+- **Local worker deques** backed by SharedArrayBuffers
+- **Work stealing** using atomic CAS operations
+- **Avoids expensive message passing** using typed SAB views
+- **Cross-thread task execution** with a static function table
+- **Zero-copy argument marshalling (planned)**
+- **WASM stack switching + continuation support (v2+)**
+- **Dynamic IR-level yield injection (future)**
+- **Decentralized scheduling architecture (Cilk-like)**
 
 ---
 
-##  Current State — v1
+## 📦 Quick Start (Prototype Example)
 
-This repository currently contains the first slice of the scheduler:
+```ts
+import { Scheduler } from "./scheduler";
 
-- a static/dynamic vtable
-- virtual thread abstraction
-- random scheduling (initial prototype)
-- thread state transitions (Sleeping → Running)
-- callback-based task completion
+const scheduler = new Scheduler(4); // 4 worker threads
 
-Architecture notes and design decisions live in:
+// define the function table ahead of time. as in /src/worker/worker.js
 
-- `/docs/architecture.md`
-- `/docs/dev_thoughts.md`
-- `/docs/experimental/` (design sketches, thought experiments, alternative models)
+scheduler.newTask(1, [40, 2]);  // => 42
+```
 
----
+🧠 Why Penny Exists
 
-##  Current Data Flow (v1)
+Modern runtimes like Cilk, Go, Tokio, Rayon, and Java Loom all rely on:
 
-![Scheduler Flow](./diagrams/penny-v1.png)
+Local work queues
 
----
+Work stealing
 
-##  Use Cases (Future-facing)
+Cooperatively yielding tasks
 
-Penny is research-oriented, but the end-state runtime could support:
+Continuations or virtual threads
 
-### **Parallel client-side compute**
-- ML inference inside a webpage
-- large dataset transforms
-- video processing / compression
-- physics simulations
-- pathfinding or game logic in workers
+Stack or fiber switching
 
-### **Hybrid WASM + JS runtimes**
-- a WASM core with vtable dispatch into JS
-- JS tasks calling into WASM fibers
-- scheduling workloads across both boundaries
+Fast shared memory
 
-### **Structured parallelism inside apps**
-- “spawn / sync” style APIs for UI workloads
-- async graphs that respect data dependencies
-- mini-DAG executors for pipeline tasks
+JavaScript has none of these — yet all major platforms (browsers, Node, Deno, Bun) now support:
 
-### **Distributed workloads**
-(ambitious, long-term idea)
+Web Workers / Worker Threads
 
-Imagine a tab → tab → device → device virtual thread pool:
+SharedArrayBuffers
 
-- serialize tasks
-- send them to other clients
-- run atomic microtasks
-- aggregate results
-- behave like a global cooperative cluster
+Atomics
 
----
+WebAssembly
 
-##  Roadmap
+Proposed WASM stack switching
 
-###  v2 Goals
-- Thread state machine: Idle | Running | Blocked
-- Deterministic scheduling (round-robin)
-- Per-thread task deques
-- Work-stealing prototype (Cilk-style)
-- Basic dependency graph support (mini-DAG executor)
-- Name-mangled function registry (hash → function mapping)
+Module-level isolation and loading
 
-###  v3 Goals
-- WASM core scheduler
-- WASM stack switching → shallow fibers
-- Pluggable thread backend: Browser / Node / WASM host
+Penny explores whether a real multicore scheduler can be built using only these primitives.
 
-###  v4 Vision
-- Multi-node distributed scheduling
-- Serialized microtasks + atomic execution units
-- Virtual global thread pool across clients
+## Architecture Overview (High-Level)
 
----
+Each worker has a dedicated SAB slice containing:
 
-## Experimental Designs
+State
 
-All alternative designs (e.g., MGR — Merry Go Round Scheduler, userland fake stacks, multi-queue experiments) live in: /docs/experimental
+Identifiers
 
+Top/Bottom deque pointers
+
+A ring buffer for tasks
+
+Workers run an infinite loop:
+
+Pop from bottom (fast path)
+
+If empty → steal from another worker’s top
+
+If all empty → check global MPMC queue
+
+If still empty → Atomics.wait()
+
+Main thread only injects tasks; it does not schedule them
+
+Future versions may move scheduling into a dedicated "scheduler worker"
+
+📄 Full details:
+👉 docs/architecture.md
+
+## Status
+
+Penny is experimental and rapidly evolving.
+Not intended for production use.
