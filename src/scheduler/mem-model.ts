@@ -14,7 +14,7 @@ export const THREAD_TASK_CAPACITY = 10; // Num of tasks per thread
 const SIZE_PER_TASK = 4; // uint32
 export const THREAD_MEMORY_SIZE = (METADATA_SIZE + POINTER_SIZE +  (THREAD_TASK_CAPACITY*SIZE_PER_TASK));
 
-const THREAD_COUNT = 4;
+const THREAD_COUNT = 4; // make this dynamic
 const SAB_MEMORY = THREAD_MEMORY_SIZE * THREAD_COUNT ; // Totally memory to account for all thread deques
 
 export const TOP_OFFSET =  METADATA_SIZE;

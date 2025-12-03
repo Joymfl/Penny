@@ -1,0 +1,4 @@
+F:/Workspace/Penny/src/penny-core/out/CMakeFiles/penny_core.dir
+F:/Workspace/Penny/src/penny-core/out/CMakeFiles/test_wasm.dir
+F:/Workspace/Penny/src/penny-core/out/CMakeFiles/edit_cache.dir
+F:/Workspace/Penny/src/penny-core/out/CMakeFiles/rebuild_cache.dir
