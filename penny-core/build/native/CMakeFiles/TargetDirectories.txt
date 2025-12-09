@@ -1,0 +1,5 @@
+/home/ddwr/Workspace/Penny/penny-core/build/native/CMakeFiles/edit_cache.dir
+/home/ddwr/Workspace/Penny/penny-core/build/native/CMakeFiles/rebuild_cache.dir
+/home/ddwr/Workspace/Penny/penny-core/build/native/native/CMakeFiles/penny_native.dir
+/home/ddwr/Workspace/Penny/penny-core/build/native/native/CMakeFiles/edit_cache.dir
+/home/ddwr/Workspace/Penny/penny-core/build/native/native/CMakeFiles/rebuild_cache.dir

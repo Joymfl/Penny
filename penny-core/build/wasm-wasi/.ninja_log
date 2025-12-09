@@ -1,0 +1,3 @@
+# ninja log v7
+1	46	1764955424246811122	wasm-wasi/CMakeFiles/penny_wasi.dir/main.c.obj	47342f1b3a38ce0a
+46	75	1764955424292799763	wasm-wasi/penny_wasi.wasm	5a99c9abf1e559e7

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/ddwr/Workspace/Penny/penny-core/build/native",
+  "command": "/usr/bin/cc -I/home/ddwr/Workspace/Penny/penny-core/native -o native/CMakeFiles/penny_native.dir/main.c.o -c /home/ddwr/Workspace/Penny/penny-core/native/main.c",
+  "file": "/home/ddwr/Workspace/Penny/penny-core/native/main.c",
+  "output": "/home/ddwr/Workspace/Penny/penny-core/build/native/native/CMakeFiles/penny_native.dir/main.c.o"
+}
+]

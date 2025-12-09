@@ -1,0 +1,1632 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+      - "/bin/"
+    searched_directories:
+      - "/home/ddwr/.local/share/nvim/mason/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: WASI -  - 
+      The host system is: Linux - 6.17.9-arch1-1 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeNinjaFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Program used to build from build.ninja files."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ninja-build"
+      - "ninja"
+      - "samu"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/samu"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/ninja-build"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/ninja"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/samu"
+      - "/home/ddwr/.local/share/nvim/mason/bin/ninja-build"
+      - "/home/ddwr/.local/share/nvim/mason/bin/ninja"
+      - "/home/ddwr/.local/share/nvim/mason/bin/samu"
+      - "/usr/local/sbin/ninja-build"
+      - "/usr/local/sbin/ninja"
+      - "/usr/local/sbin/samu"
+      - "/usr/local/bin/ninja-build"
+      - "/usr/local/bin/ninja"
+      - "/usr/local/bin/samu"
+      - "/usr/bin/ninja-build"
+    found: "/usr/bin/ninja"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /opt/wasi-sdk/bin/clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/4.2.0/CompilerIdC/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar"
+      - "ar"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ar"
+    found: "/opt/wasi-sdk/bin/llvm-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib"
+      - "ranlib"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ranlib"
+    found: "/opt/wasi-sdk/bin/llvm-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-strip"
+      - "strip"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-strip"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-strip"
+    found: "/opt/wasi-sdk/bin/llvm-strip"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld.lld"
+      - "ld"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/ld.lld"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/ld.lld"
+    found: "/opt/wasi-sdk/bin/ld.lld"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-nm"
+      - "nm"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-nm"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-nm"
+    found: "/opt/wasi-sdk/bin/llvm-nm"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-objdump"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-objdump"
+    found: "/opt/wasi-sdk/bin/llvm-objdump"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-objcopy"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-objcopy"
+    found: "/opt/wasi-sdk/bin/llvm-objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-readelf"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-readelf"
+      - "/opt/wasi-sdk/bin/llvm-readelf"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-readelf"
+      - "/usr/local/sbin/llvm-readelf"
+      - "/usr/local/bin/llvm-readelf"
+    found: "/usr/bin/llvm-readelf"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-dlltool"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-dlltool"
+      - "/opt/wasi-sdk/bin/llvm-dlltool"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-dlltool"
+      - "/usr/local/sbin/llvm-dlltool"
+      - "/usr/local/bin/llvm-dlltool"
+    found: "/usr/bin/llvm-dlltool"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-addr2line"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-addr2line"
+    found: "/opt/wasi-sdk/bin/llvm-addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/tapi"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/tapi"
+      - "/opt/wasi-sdk/bin/tapi"
+      - "/home/ddwr/.local/share/nvim/mason/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/bin/tapi"
+      - "/opt/cuda/bin/tapi"
+      - "/usr/lib/emscripten/tapi"
+      - "/usr/lib/jvm/default/bin/tapi"
+      - "/usr/bin/site_perl/tapi"
+      - "/usr/bin/vendor_perl/tapi"
+      - "/usr/bin/core_perl/tapi"
+      - "/usr/lib/rustup/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-21.1"
+      - "llvm-ar-21"
+      - "llvm-ar21"
+      - "llvm-ar"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/bin/llvm-ar-21.1"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ar-21.1"
+      - "/usr/local/sbin/llvm-ar-21.1"
+      - "/usr/local/bin/llvm-ar-21.1"
+      - "/usr/bin/llvm-ar-21.1"
+      - "/opt/cuda/bin/llvm-ar-21.1"
+      - "/usr/lib/emscripten/llvm-ar-21.1"
+      - "/usr/lib/jvm/default/bin/llvm-ar-21.1"
+      - "/usr/bin/site_perl/llvm-ar-21.1"
+      - "/usr/bin/vendor_perl/llvm-ar-21.1"
+      - "/usr/bin/core_perl/llvm-ar-21.1"
+      - "/usr/lib/rustup/bin/llvm-ar-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/bin/llvm-ar-21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ar-21"
+      - "/usr/local/sbin/llvm-ar-21"
+      - "/usr/local/bin/llvm-ar-21"
+      - "/usr/bin/llvm-ar-21"
+      - "/opt/cuda/bin/llvm-ar-21"
+      - "/usr/lib/emscripten/llvm-ar-21"
+      - "/usr/lib/jvm/default/bin/llvm-ar-21"
+      - "/usr/bin/site_perl/llvm-ar-21"
+      - "/usr/bin/vendor_perl/llvm-ar-21"
+      - "/usr/bin/core_perl/llvm-ar-21"
+      - "/usr/lib/rustup/bin/llvm-ar-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ar21"
+      - "/opt/wasi-sdk/bin/llvm-ar21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ar21"
+      - "/usr/local/sbin/llvm-ar21"
+      - "/usr/local/bin/llvm-ar21"
+      - "/usr/bin/llvm-ar21"
+      - "/opt/cuda/bin/llvm-ar21"
+      - "/usr/lib/emscripten/llvm-ar21"
+      - "/usr/lib/jvm/default/bin/llvm-ar21"
+      - "/usr/bin/site_perl/llvm-ar21"
+      - "/usr/bin/vendor_perl/llvm-ar21"
+      - "/usr/bin/core_perl/llvm-ar21"
+      - "/usr/lib/rustup/bin/llvm-ar21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ar"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ar"
+    found: "/opt/wasi-sdk/bin/llvm-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-21.1"
+      - "llvm-ranlib-21"
+      - "llvm-ranlib21"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/bin/llvm-ranlib-21.1"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib-21.1"
+      - "/usr/local/sbin/llvm-ranlib-21.1"
+      - "/usr/local/bin/llvm-ranlib-21.1"
+      - "/usr/bin/llvm-ranlib-21.1"
+      - "/opt/cuda/bin/llvm-ranlib-21.1"
+      - "/usr/lib/emscripten/llvm-ranlib-21.1"
+      - "/usr/lib/jvm/default/bin/llvm-ranlib-21.1"
+      - "/usr/bin/site_perl/llvm-ranlib-21.1"
+      - "/usr/bin/vendor_perl/llvm-ranlib-21.1"
+      - "/usr/bin/core_perl/llvm-ranlib-21.1"
+      - "/usr/lib/rustup/bin/llvm-ranlib-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/bin/llvm-ranlib-21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib-21"
+      - "/usr/local/sbin/llvm-ranlib-21"
+      - "/usr/local/bin/llvm-ranlib-21"
+      - "/usr/bin/llvm-ranlib-21"
+      - "/opt/cuda/bin/llvm-ranlib-21"
+      - "/usr/lib/emscripten/llvm-ranlib-21"
+      - "/usr/lib/jvm/default/bin/llvm-ranlib-21"
+      - "/usr/bin/site_perl/llvm-ranlib-21"
+      - "/usr/bin/vendor_perl/llvm-ranlib-21"
+      - "/usr/bin/core_perl/llvm-ranlib-21"
+      - "/usr/lib/rustup/bin/llvm-ranlib-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/bin/llvm-ranlib21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib21"
+      - "/usr/local/sbin/llvm-ranlib21"
+      - "/usr/local/bin/llvm-ranlib21"
+      - "/usr/bin/llvm-ranlib21"
+      - "/opt/cuda/bin/llvm-ranlib21"
+      - "/usr/lib/emscripten/llvm-ranlib21"
+      - "/usr/lib/jvm/default/bin/llvm-ranlib21"
+      - "/usr/bin/site_perl/llvm-ranlib21"
+      - "/usr/bin/vendor_perl/llvm-ranlib21"
+      - "/usr/bin/core_perl/llvm-ranlib21"
+      - "/usr/lib/rustup/bin/llvm-ranlib21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/llvm-ranlib"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/llvm-ranlib"
+    found: "/opt/wasi-sdk/bin/llvm-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-21.1"
+      - "clang-scan-deps-21"
+      - "clang-scan-deps21"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/"
+      - "/opt/wasi-sdk/bin/"
+      - "/home/ddwr/.local/share/nvim/mason/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/emscripten/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/bin/clang-scan-deps-21.1"
+      - "/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps-21.1"
+      - "/usr/local/sbin/clang-scan-deps-21.1"
+      - "/usr/local/bin/clang-scan-deps-21.1"
+      - "/usr/bin/clang-scan-deps-21.1"
+      - "/opt/cuda/bin/clang-scan-deps-21.1"
+      - "/usr/lib/emscripten/clang-scan-deps-21.1"
+      - "/usr/lib/jvm/default/bin/clang-scan-deps-21.1"
+      - "/usr/bin/site_perl/clang-scan-deps-21.1"
+      - "/usr/bin/vendor_perl/clang-scan-deps-21.1"
+      - "/usr/bin/core_perl/clang-scan-deps-21.1"
+      - "/usr/lib/rustup/bin/clang-scan-deps-21.1"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/bin/clang-scan-deps-21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps-21"
+      - "/usr/local/sbin/clang-scan-deps-21"
+      - "/usr/local/bin/clang-scan-deps-21"
+      - "/usr/bin/clang-scan-deps-21"
+      - "/opt/cuda/bin/clang-scan-deps-21"
+      - "/usr/lib/emscripten/clang-scan-deps-21"
+      - "/usr/lib/jvm/default/bin/clang-scan-deps-21"
+      - "/usr/bin/site_perl/clang-scan-deps-21"
+      - "/usr/bin/vendor_perl/clang-scan-deps-21"
+      - "/usr/bin/core_perl/clang-scan-deps-21"
+      - "/usr/lib/rustup/bin/clang-scan-deps-21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/bin/clang-scan-deps21"
+      - "/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps21"
+      - "/usr/local/sbin/clang-scan-deps21"
+      - "/usr/local/bin/clang-scan-deps21"
+      - "/usr/bin/clang-scan-deps21"
+      - "/opt/cuda/bin/clang-scan-deps21"
+      - "/usr/lib/emscripten/clang-scan-deps21"
+      - "/usr/lib/jvm/default/bin/clang-scan-deps21"
+      - "/usr/bin/site_perl/clang-scan-deps21"
+      - "/usr/bin/vendor_perl/clang-scan-deps21"
+      - "/usr/bin/core_perl/clang-scan-deps21"
+      - "/usr/lib/rustup/bin/clang-scan-deps21"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/wasi-sdk/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/sbin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/local/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/opt/cuda/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/emscripten/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/jvm/default/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/site_perl/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/vendor_perl/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/bin/core_perl/clang-scan-deps"
+      - "/opt/wasi-sdk/share/wasi-sysroot/usr/lib/rustup/bin/clang-scan-deps"
+      - "/opt/wasi-sdk/bin/clang-scan-deps"
+      - "/home/ddwr/.local/share/nvim/mason/bin/clang-scan-deps"
+      - "/usr/local/sbin/clang-scan-deps"
+      - "/usr/local/bin/clang-scan-deps"
+    found: "/usr/bin/clang-scan-deps"
+    search_context:
+      ENV{PATH}:
+        - "/home/ddwr/.local/share/nvim/mason/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/emscripten"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+        - "/usr/lib/emscripten"
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY"
+      binary: "/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_SYSROOT: "/opt/wasi-sdk/share/wasi-sysroot"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_b7a4f
+        [1/2] /opt/wasi-sdk/bin/clang --sysroot=/opt/wasi-sdk/share/wasi-sysroot   -v -MD -MT CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang version 21.1.4-wasi-sdk (https://github.com/llvm/llvm-project 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)
+        Target: wasm32-unknown-wasi
+        Thread model: posix
+        InstalledDir: /opt/wasi-sdk/bin
+        Configuration file: /opt/wasi-sdk/bin/clang.cfg
+         (in-process)
+         "/opt/wasi-sdk/bin/clang-21" -cc1 -triple wasm32-unknown-wasi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY -v -fcoverage-compilation-dir=/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY -resource-dir /opt/wasi-sdk/lib/clang/21 -dependency-file CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -sys-header-deps -isysroot /opt/wasi-sdk/share/wasi-sysroot -internal-isystem /opt/wasi-sdk/lib/clang/21/include -internal-isystem /opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi -internal-isystem /opt/wasi-sdk/share/wasi-sysroot/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 21.1.4-wasi-sdk based upon LLVM 21.1.4-wasi-sdk default target wasm32-wasi
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/wasi-sdk/lib/clang/21/include
+         /opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi
+         /opt/wasi-sdk/share/wasi-sysroot/include
+        End of search list.
+        [2/2] : && /opt/wasi-sdk/bin/clang --sysroot=/opt/wasi-sdk/share/wasi-sysroot  -v CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -o cmTC_b7a4f   && :
+        clang version 21.1.4-wasi-sdk (https://github.com/llvm/llvm-project 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)
+        Target: wasm32-unknown-wasi
+        Thread model: posix
+        InstalledDir: /opt/wasi-sdk/bin
+        Configuration file: /opt/wasi-sdk/bin/clang.cfg
+         "/opt/wasi-sdk/bin/wasm-ld" -m wasm32 -L/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi -L/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi /opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi/crt1-command.o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -lc /opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi/libclang_rt.builtins.a -o cmTC_b7a4f
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/wasi-sdk/lib/clang/21/include]
+          add: [/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi]
+          add: [/opt/wasi-sdk/share/wasi-sysroot/include]
+        end of search list found
+        collapse include dir [/opt/wasi-sdk/lib/clang/21/include] ==> [/opt/wasi-sdk/lib/clang/21/include]
+        collapse include dir [/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi] ==> [/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi]
+        collapse include dir [/opt/wasi-sdk/share/wasi-sysroot/include] ==> [/opt/wasi-sdk/share/wasi-sysroot/include]
+        implicit include dirs: [/opt/wasi-sdk/lib/clang/21/include;/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi;/opt/wasi-sdk/share/wasi-sysroot/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_b7a4f]
+        ignore line: [[1/2] /opt/wasi-sdk/bin/clang --sysroot=/opt/wasi-sdk/share/wasi-sysroot   -v -MD -MT CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang version 21.1.4-wasi-sdk (https://github.com/llvm/llvm-project 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)]
+        ignore line: [Target: wasm32-unknown-wasi]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/wasi-sdk/bin]
+        ignore line: [Configuration file: /opt/wasi-sdk/bin/clang.cfg]
+        ignore line: [ (in-process)]
+        ignore line: [ "/opt/wasi-sdk/bin/clang-21" -cc1 -triple wasm32-unknown-wasi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY -v -fcoverage-compilation-dir=/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/CMakeScratch/TryCompile-g0LGiY -resource-dir /opt/wasi-sdk/lib/clang/21 -dependency-file CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -sys-header-deps -isysroot /opt/wasi-sdk/share/wasi-sysroot -internal-isystem /opt/wasi-sdk/lib/clang/21/include -internal-isystem /opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi -internal-isystem /opt/wasi-sdk/share/wasi-sysroot/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 21.1.4-wasi-sdk based upon LLVM 21.1.4-wasi-sdk default target wasm32-wasi]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/wasi-sdk/lib/clang/21/include]
+        ignore line: [ /opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi]
+        ignore line: [ /opt/wasi-sdk/share/wasi-sysroot/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /opt/wasi-sdk/bin/clang --sysroot=/opt/wasi-sdk/share/wasi-sysroot  -v CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -o cmTC_b7a4f   && :]
+        ignore line: [clang version 21.1.4-wasi-sdk (https://github.com/llvm/llvm-project 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)]
+        ignore line: [Target: wasm32-unknown-wasi]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/wasi-sdk/bin]
+        ignore line: [Configuration file: /opt/wasi-sdk/bin/clang.cfg]
+        link line: [ "/opt/wasi-sdk/bin/wasm-ld" -m wasm32 -L/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi -L/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi /opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi/crt1-command.o CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj -lc /opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi/libclang_rt.builtins.a -o cmTC_b7a4f]
+          arg [/opt/wasi-sdk/bin/wasm-ld] ==> ignore
+          arg [-m] ==> ignore
+          arg [wasm32] ==> ignore
+          arg [-L/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi] ==> dir [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi]
+          arg [-L/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi] ==> dir [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi]
+          arg [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi/crt1-command.o] ==> obj [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi/crt1-command.o]
+          arg [CMakeFiles/cmTC_b7a4f.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi/libclang_rt.builtins.a] ==> lib [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi/libclang_rt.builtins.a]
+          arg [-o] ==> ignore
+          arg [cmTC_b7a4f] ==> ignore
+        ignore line: []
+        ignore line: []
+        remove lib [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi/libclang_rt.builtins.a]
+        collapse library dir [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi] ==> [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi]
+        collapse library dir [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi] ==> [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi]
+        implicit libs: [c]
+        implicit objs: [/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi/crt1-command.o]
+        implicit dirs: [/opt/wasi-sdk/lib/clang/21/lib/wasm32-unknown-wasi;/opt/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi]
+        implicit fwks: []
+      
+      
+...

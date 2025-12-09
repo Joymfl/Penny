@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/cmake_install.cmake",
+		"/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/wasm-wasi/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

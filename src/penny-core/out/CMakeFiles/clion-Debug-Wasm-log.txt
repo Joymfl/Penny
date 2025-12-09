@@ -1,4 +1,0 @@
-C:\Users\joydm\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=C:/wasi-sdk/bin/clang.exe -DCMAKE_CXX_COMPILER=C:/wasi-sdk/bin/clang++.exe -G "Unix Makefiles" -S F:\Workspace\Penny\src\penny-core -B F:\Workspace\Penny\src\penny-core\out
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: F:/Workspace/Penny/src/penny-core/out
