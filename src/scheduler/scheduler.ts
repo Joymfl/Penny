@@ -10,17 +10,33 @@ export class Scheduler {
     // This is the only way I can think of to provide a mechanism, to allow threads to steal from each other
     // The issue is, that in the browser, worker threads, can't look into other thread's memories (afaik), but doing it in a shared buffer, with careful atomics could be a promising workaround
     GlobalTaskDequeList: MemoryModel;
+    userTaskPoolNum: number = 0;
+    currentThreadsInPool: number = 0;
     resultCallback: (ev: MessageEvent<any>) =>void = (ev: MessageEvent<any>) => {console.log(ev.data)};
+
+    readyCount = 0;
+    _resolveReady!: () => void;
+    readyPromise: Promise<void>;
 
     // Use the id, to identify the indice of the thread is being used
     constructor(threadCount = navigator.hardwareConcurrency || 4 ) {
+        this.userTaskPoolNum = threadCount;
         this.GlobalTaskDequeList = new MemoryModel();
+
+        this.readyPromise = new Promise((resolve) => {
+            this._resolveReady = resolve;
+        })
 
         // not providing override of scheduler vTable for now.
         for (let i = 0; i < threadCount; i ++){
             const thread = new Thread(  i, this.GlobalTaskDequeList.sab);
             // const thread = createThread(i, this.vTable);
             thread.worker.onmessage = (ev: any) => {
+                if (ev.data.type === "READY"){
+                    this.currentThreadsInPool++;
+                    if (this.currentThreadsInPool === this.userTaskPoolNum) this._resolveReady();
+                    return;
+                }
                 this.resultCallback(ev);
             }
 
@@ -31,11 +47,13 @@ export class Scheduler {
             thread.worker.onmessageerror = (e) => {
                 console.error("WORKER MESSAGE ERROR:", e);
             };
-            thread.top[0] = 0;
-            thread.bottom[0] = 0;
             thread.worker.postMessage({sab: this.GlobalTaskDequeList.sab, threadId: i});
            this.threadPool.push(thread);
         }
+    }
+
+    async waitForReady() {
+        return this.readyPromise;
     }
 
     onResult(cb: (ev: MessageEvent<any>)=>void) {

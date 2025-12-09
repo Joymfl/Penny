@@ -15,4 +15,16 @@ import {runBenchmark} from "./benchmark";
 // const worker = new Worker(new URL('./worker/test_worker.js', import.meta.url), {type: "module"});
 // worker.postMessage("ping")
 
-runBenchmark(4);
+// runBenchmark(4);
+
+(async () => {const scheduler = new Scheduler(4);
+await scheduler.waitForReady();
+console.log("thread ready!");
+scheduler.newTask(1, 2,3);
+scheduler.newTask(1, 22,2000);
+scheduler.newTask(1, 40,43);
+scheduler.newTask(1, 28,999);
+scheduler.newTask(2, 40,40);
+scheduler.newTask(2, 20,1);
+})();
+

@@ -2,7 +2,8 @@
 
 export async function runBenchmark(threadCount: number) {
    const scheduler = new Scheduler(threadCount  );
-   const NUM_TASKS = 100_000;
+   await scheduler.waitForReady();
+   const NUM_TASKS = 100;
 
    const start = performance.now();
    console.log(`start: ${start}`);
@@ -11,6 +12,7 @@ export async function runBenchmark(threadCount: number) {
 
    scheduler.onResult((result) => {
        completed++;
+       console.log(`result of thread: ${result.data}`)
        if (completed === NUM_TASKS) {
            const end = performance.now();
            console.log("Done: ", {

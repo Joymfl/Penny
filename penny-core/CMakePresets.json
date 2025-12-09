@@ -1,0 +1,54 @@
+{
+	"version": 3,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 25
+	},
+
+	"configurePresets": [
+		{
+			"name": "base",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+			}
+		},
+		{
+			"name": "native",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "",
+				"BUILD_NATIVE": "ON",
+				"BUILD_WASM_ECC": "OFF",
+				"BUILD_WASM_WASI": "OFF"
+			}
+		},
+		{
+			"name": "wasm-ecc",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "${sourceDir}/toolchains/emscripten-ecc.cmake",
+				"BUILD_NATIVE": "OFF",
+				"BUILD_WASM_ECC": "ON",
+				"BUILD_WASM_WASI": "OFF"
+			}
+		},
+		{
+			"name": "wasm-wasi",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "${sourceDir}/toolchains/wasi-sdk.cmake",
+				"BUILD_NATIVE": "OFF",
+				"BUILD_WASM_ECC": "OFF",
+				"BUILD_WASM_WASI": "ON"
+			}
+		}
+	],
+
+	"buildPresets": [
+		{"name": "native", "configurePreset": "native"},
+		{"name": "wasm-ecc", "configurePreset":"wasm-ecc"},
+		{"name": "wasm-wasi", "configurePreset": "wasm-wasi"}
+	]
+}

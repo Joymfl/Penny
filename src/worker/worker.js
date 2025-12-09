@@ -53,6 +53,7 @@ self.onmessage = (ev) => {
         );
 
         initialized = true;
+        self.postMessage({type: "READY"});
         return;
     }
 
