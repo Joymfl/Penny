@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi",
-  "command": "/opt/wasi-sdk/bin/clang --sysroot=/opt/wasi-sdk/share/wasi-sysroot -I/home/ddwr/Workspace/Penny/penny-core/wasm-wasi -o wasm-wasi/CMakeFiles/penny_wasi.dir/main.c.obj -c /home/ddwr/Workspace/Penny/penny-core/wasm-wasi/main.c",
-  "file": "/home/ddwr/Workspace/Penny/penny-core/wasm-wasi/main.c",
-  "output": "/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/wasm-wasi/CMakeFiles/penny_wasi.dir/main.c.obj"
-}
-]

@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/ddwr/Workspace/Penny/penny-core/build/native/cmake_install.cmake",
-		"/home/ddwr/Workspace/Penny/penny-core/build/native/native/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

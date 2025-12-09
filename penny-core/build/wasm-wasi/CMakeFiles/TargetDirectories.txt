@@ -1,5 +1,0 @@
-/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/edit_cache.dir
-/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/CMakeFiles/rebuild_cache.dir
-/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/wasm-wasi/CMakeFiles/penny_wasi.dir
-/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/wasm-wasi/CMakeFiles/edit_cache.dir
-/home/ddwr/Workspace/Penny/penny-core/build/wasm-wasi/wasm-wasi/CMakeFiles/rebuild_cache.dir
