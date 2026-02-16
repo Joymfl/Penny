@@ -1,7 +1,6 @@
-import {Scheduler} from "./scheduler/scheduler";
-import {Vtable} from "./FunctionTable/vtable";
-import {runBenchmark} from "./benchmark";
-
+import { Scheduler } from "./scheduler/scheduler";
+import { Vtable } from "./FunctionTable/vtable";
+import { runBenchmark } from "./benchmark";
 
 // testing dynamic function loading
 // const functionTable = new Vtable();
@@ -17,14 +16,13 @@ import {runBenchmark} from "./benchmark";
 
 // runBenchmark(4);
 
-(async () => {const scheduler = new Scheduler(4);
-await scheduler.waitForReady();
-console.log("thread ready!");
-scheduler.newTask(1, 2,3);
-scheduler.newTask(1, 22,2000);
-scheduler.newTask(1, 40,43);
-scheduler.newTask(1, 28,999);
-scheduler.newTask(2, 40,40);
-scheduler.newTask(2, 20,1);
-})();
-
+// (async () => {const scheduler = new Scheduler(4);
+// await scheduler.waitForReady();
+// console.log("thread ready!");
+// scheduler.newTask(1, 2,3);
+// scheduler.newTask(1, 22,2000);
+// scheduler.newTask(1, 40,43);
+// scheduler.newTask(1, 28,999);
+// scheduler.newTask(2, 40,40);
+// scheduler.newTask(2, 20,1);
+// })();
