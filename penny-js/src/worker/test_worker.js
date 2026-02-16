@@ -3,5 +3,5 @@
 console.log("import succeeded:", M);
 
 self.onmessage = (ev) => {
-    console.log("ping");
-}
+  console.log("ping");
+};

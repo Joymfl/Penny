@@ -1,76 +1,88 @@
-﻿import {createThread, ThreadState, VirtualThread} from "../threads/thread";
-import {Vtable} from "../FunctionTable/vtable";
-import {MemoryModel} from "./mem-model";
-import {Thread} from "../deque/deque";
-
+﻿import { createThread, ThreadState, VirtualThread } from "../threads/thread";
+import { Vtable } from "../FunctionTable/vtable";
+import { MemoryModel } from "./mem-model";
+import { Thread } from "../deque/deque";
 
 export class Scheduler {
-    threadPool:  Thread[] = [];
-    vTable: Vtable | undefined = undefined;
-    // This is the only way I can think of to provide a mechanism, to allow threads to steal from each other
-    // The issue is, that in the browser, worker threads, can't look into other thread's memories (afaik), but doing it in a shared buffer, with careful atomics could be a promising workaround
-    GlobalTaskDequeList: MemoryModel;
-    userTaskPoolNum: number = 0;
-    currentThreadsInPool: number = 0;
-    resultCallback: (ev: MessageEvent<any>) =>void = (ev: MessageEvent<any>) => {console.log(ev.data)};
+  threadPool: Thread[] = [];
+  vTable: Vtable | undefined = undefined;
+  // TODO: (REMOVE: VALIDATED) ->This is the only way I can think of to provide a mechanism, to allow threads to steal from each other
+  //TODO: (REMOVE: VALIDATED)-> The issue is, that in the browser, worker threads, can't look into other thread's memories (afaik), but doing it in a shared buffer, with careful atomics could be a promising workaround
+  GlobalTaskDequeList: MemoryModel;
+  userTaskPoolNum: number = 0;
+  currentThreadsInPool: number = 0;
+  resultCallback: (ev: MessageEvent<any>) => void = (ev: MessageEvent<any>) => {
+    console.log(ev.data);
+  };
 
-    readyCount = 0;
-    _resolveReady!: () => void;
-    readyPromise: Promise<void>;
+  readyCount = 0;
+  _resolveReady!: () => void;
+  readyPromise: Promise<void>;
 
-    // Use the id, to identify the indice of the thread is being used
-    constructor(threadCount = navigator.hardwareConcurrency || 4 ) {
-        this.userTaskPoolNum = threadCount;
-        this.GlobalTaskDequeList = new MemoryModel();
+  // Use the id, to identify the indice of the thread is being used
+  constructor(threadCount = navigator.hardwareConcurrency || 4) {
+    this.userTaskPoolNum = threadCount;
+    this.GlobalTaskDequeList = new MemoryModel();
 
-        this.readyPromise = new Promise((resolve) => {
-            this._resolveReady = resolve;
-        })
+    this.readyPromise = new Promise((resolve) => {
+      this._resolveReady = resolve;
+    });
 
-        // not providing override of scheduler vTable for now.
-        for (let i = 0; i < threadCount; i ++){
-            const thread = new Thread(  i, this.GlobalTaskDequeList.sab);
-            // const thread = createThread(i, this.vTable);
-            thread.worker.onmessage = (ev: any) => {
-                if (ev.data.type === "READY"){
-                    this.currentThreadsInPool++;
-                    if (this.currentThreadsInPool === this.userTaskPoolNum) this._resolveReady();
-                    return;
-                }
-                this.resultCallback(ev);
-            }
-
-            thread.worker.onerror = (e) => {
-                console.error("WORKER ERROR:", e);
-            };
-
-            thread.worker.onmessageerror = (e) => {
-                console.error("WORKER MESSAGE ERROR:", e);
-            };
-            thread.worker.postMessage({sab: this.GlobalTaskDequeList.sab, threadId: i});
-           this.threadPool.push(thread);
+    // not providing override of scheduler vTable for now.
+    for (let i = 0; i < threadCount; i++) {
+      const thread = new Thread(i, this.GlobalTaskDequeList.sab);
+      // const thread = createThread(i, this.vTable);
+      thread.worker.onmessage = (ev: any) => {
+        if (ev.data.type === "READY") {
+          this.currentThreadsInPool++;
+          if (this.currentThreadsInPool === this.userTaskPoolNum)
+            this._resolveReady();
+          return;
         }
-    }
+        this.resultCallback(ev);
+      };
 
-    async waitForReady() {
-        return this.readyPromise;
-    }
+      thread.worker.onerror = (e) => {
+        console.error("WORKER ERROR:", e);
+      };
 
-    onResult(cb: (ev: MessageEvent<any>)=>void) {
-        this.resultCallback = cb;
+      thread.worker.onmessageerror = (e) => {
+        console.error("WORKER MESSAGE ERROR:", e);
+      };
+      thread.worker.postMessage({
+        sab: this.GlobalTaskDequeList.sab,
+        threadId: i,
+      });
+      this.threadPool.push(thread);
     }
+  }
 
-    newTask(taskId: number, ...args: any[]){
-        // Randomly find a thread to assign task to, but it would be better if we had thread states to always assign to idle or low prio threads
-        const randThreadIndex = Math.floor(Math.random() * this.threadPool.length);
+  async waitForReady() {
+    return this.readyPromise;
+  }
 
-        const worker = this.threadPool[randThreadIndex].worker;
-        this.threadPool[randThreadIndex].state[0]= 1;
-        this.threadPool[randThreadIndex].tasklist[this.threadPool[randThreadIndex].bottom[0]] = taskId;
-        let b = Atomics.load(this.threadPool[randThreadIndex].bottom, 0);
-        Atomics.compareExchange(this.threadPool[randThreadIndex].bottom, 0, b, b+1);
-        worker.postMessage({args});
-        Atomics.store(this.threadPool[randThreadIndex].state, 0, 1);
-        Atomics.notify(this.threadPool[randThreadIndex].state, 0, 1);
-    }
+  onResult(cb: (ev: MessageEvent<any>) => void) {
+    this.resultCallback = cb;
+  }
+
+  newTask(taskId: number, ...args: any[]) {
+    // Randomly find a thread to assign task to, doesn't choose based on priority or workload. TODO: give priority to threads with lower prio tasks or lower count of tasks. Some sort of heuristics would be needed
+    const randThreadIndex = Math.floor(Math.random() * this.threadPool.length);
+
+    const worker = this.threadPool[randThreadIndex].worker;
+    this.threadPool[randThreadIndex].state[0] = 1;
+    this.threadPool[randThreadIndex].tasklist[
+      this.threadPool[randThreadIndex].bottom[0]
+    ] = taskId;
+    let b = Atomics.load(this.threadPool[randThreadIndex].bottom, 0);
+    Atomics.compareExchange(
+      this.threadPool[randThreadIndex].bottom,
+      0,
+      b,
+      b + 1,
+    );
+    worker.postMessage({ args });
+    Atomics.store(this.threadPool[randThreadIndex].state, 0, 1);
+    Atomics.notify(this.threadPool[randThreadIndex].state, 0, 1);
+  }
 }
